@@ -2,12 +2,9 @@ import React, { Component } from 'react'
 import data from '../dataGlasses.json'
 
 export default class Main extends Component {
-    constructor(props) {
-        super(props)
-        this.state = {
-            glass: {},
-            display: 'none'
-        }
+    state = {
+        glass: {},
+        display: 'none'
     }
 
     changeGlass(glass) {
@@ -15,7 +12,7 @@ export default class Main extends Component {
     }
 
     renderGlass() {
-        return data.map((glass, index) => <img src={glass.url} alt='' onClick={() => this.changeGlass(glass)} key={index} />)
+        return data.map(glass => <img src={glass.url} alt='' onClick={() => this.changeGlass(glass)} key={glass.id} />)
     }
 
     render() {
