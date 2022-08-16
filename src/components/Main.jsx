@@ -7,11 +7,11 @@ export default class Main extends Component {
         display: 'none'
     }
 
-    changeGlass(glass) {
+    changeGlass = (glass) => {
         this.setState({ glass: glass, display: 'block' })
     }
 
-    renderGlass() {
+    renderGlass = () => {
         return data.map(glass => <img src={glass.url} alt='' onClick={() => this.changeGlass(glass)} key={glass.id} />)
     }
 
