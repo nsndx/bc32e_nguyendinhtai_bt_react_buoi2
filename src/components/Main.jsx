@@ -13,13 +13,13 @@ export default class Main extends Component {
         }
     }
 
-    changeGlass(index) {
-        const { url, name, price, desc } = data[index]
+    changeGlass(glass) {
+        const { url, name, price, desc } = glass
         this.setState({ img: url, name: name, price: price + '$', desc: desc, display: 'block' })
     }
 
     renderGlass() {
-        return data.map((glass, index) => <img src={glass.url} alt='' onClick={() => this.changeGlass(index)} key={index} />)
+        return data.map((glass, index) => <img src={glass.url} alt='' onClick={() => this.changeGlass(glass)} key={index} />)
     }
 
     render() {
