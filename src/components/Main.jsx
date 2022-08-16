@@ -5,17 +5,13 @@ export default class Main extends Component {
     constructor(props) {
         super(props)
         this.state = {
-            img: '',
-            name: '',
-            price: '',
-            desc: '',
+            glass: {},
             display: 'none'
         }
     }
 
     changeGlass(glass) {
-        const { url, name, price, desc } = glass
-        this.setState({ img: url, name: name, price: price + '$', desc: desc, display: 'block' })
+        this.setState({ glass: glass, display: 'block' })
     }
 
     renderGlass() {
@@ -37,10 +33,10 @@ export default class Main extends Component {
                         </div>
                         <div className="col">
                             <img src={'./glassesImage/model.jpg'} alt="" />
-                            <img src={this.state.img} alt="" className='imgGlass' />
+                            <img src={this.state.glass.url} alt="" className='imgGlass' />
                             <div className="info" style={{ display: this.state.display }}>
-                                <h3>{this.state.name}</h3> <span>{this.state.price}</span>
-                                <p>{this.state.desc}</p>
+                                <h3>{this.state.glass.name}</h3> <span>{this.state.glass.price}$</span>
+                                <p>{this.state.glass.desc}</p>
                             </div>
                         </div>
                     </div>
