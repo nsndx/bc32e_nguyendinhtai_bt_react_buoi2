@@ -5,7 +5,6 @@ export default class Main extends Component {
     constructor(props) {
         super(props)
         this.state = {
-            data: data,
             img: '',
             name: '',
             price: '',
@@ -15,12 +14,12 @@ export default class Main extends Component {
     }
 
     changeGlass(index) {
-        const { url, name, price, desc } = this.state.data[index]
+        const { url, name, price, desc } = data[index]
         this.setState({ img: url, name: name, price: price + '$', desc: desc, display: 'block' })
     }
 
     renderGlass() {
-        return this.state.data.map((glass, index) => <img src={glass.url} alt='' onClick={() => this.changeGlass(index)} key={index} />)
+        return data.map((glass, index) => <img src={glass.url} alt='' onClick={() => this.changeGlass(index)} key={index} />)
     }
 
     render() {
@@ -30,10 +29,10 @@ export default class Main extends Component {
                     <div className="model">
                         <div className="col">
                             <img src={'./glassesImage/model.jpg'} alt="" />
-                            <img src={this.state.data[2].url} alt="" className='imgGlass' />
+                            <img src={data[2].url} alt="" className='imgGlass' />
                             <div className="info">
-                                <h3>{this.state.data[2].name}</h3> <span>{this.state.data[2].price}$</span>
-                                <p>{this.state.data[2].desc}</p>
+                                <h3>{data[2].name}</h3> <span>{data[2].price}$</span>
+                                <p>{data[2].desc}</p>
                             </div>
                         </div>
                         <div className="col">
